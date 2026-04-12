@@ -1,0 +1,76 @@
+/* ===== SIDEBAR ===== */
+
+.admin-content {
+    margin-left: 260px;
+    margin-top: 70px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+.admin-sidebar {
+    position: fixed;
+    top: 70px;   /* 👈 header height jitna */
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 70px);
+    z-index: 999;
+}
+
+/* Sidebar links */
+.admin-sidebar .nav-link {
+    color: #9ca3af;
+    margin: 6px 10px;
+    border-radius: 12px;
+    padding: 11px 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.admin-wrapper.sidebar-collapsed .admin-sidebar {
+    left: -260px;
+}
+
+.admin-wrapper.sidebar-collapsed .admin-header {
+    left: 0;
+}
+
+.admin-wrapper.sidebar-collapsed .admin-content {
+    margin-left: 0;
+}
+/* Hover */
+.admin-sidebar .nav-link:hover {
+    background: rgba(99, 102, 241, 0.15);
+    color: #fff;
+}
+
+/* Active */
+.admin-sidebar .nav-link.active {
+    background: linear-gradient(135deg, #6366f1, #22c55e);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(99,102,241,0.4);
+}
+.admin-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    position: fixed;
+       top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 200;
+  
+   
+}
+
+.admin-header .btn-outline-secondary {
+    border-color: #e5e7eb;
+    color: #374151;
+}
+
+.admin-header .btn-outline-secondary:hover {
+    background: #6366f1;
+    color: #fff;
+}
+.admin-sidebar .nav-link.active i {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
