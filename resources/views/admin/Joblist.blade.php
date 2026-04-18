@@ -727,10 +727,12 @@
                         <td>
     <div class="company-location">
         <i class="bi bi-calendar-event"></i>
-       @if($job->start_date && \Carbon\Carbon::parse($job->start_date)->isFuture())
-    <span class="badge bg-warning">Upcoming</span>
+   @if($job->start_date > now())
+    <span class="badge bg-warning">Not Started</span>
+@elseif($job->last_date < now())
+    <span class="badge bg-danger">Expired</span>
 @else
-    <span class="badge bg-success">Live</span>
+    <span class="badge bg-success">Active</span>
 @endif
     </div>
 </td>

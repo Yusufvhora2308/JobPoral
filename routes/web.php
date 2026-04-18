@@ -45,6 +45,8 @@ use App\Http\Controllers\RemoteController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\CompanyReivewController;
+use App\Http\Controllers\AdminReviewController;
 
 Route::get('/', [Homecontroller::class,'Home']);
 
@@ -257,6 +259,14 @@ Route::get('/notifications', [JobNotficationController::class, 'index'])
 // 🔹 Mark as Read
 Route::get('/notification/read/{id}', [JobNotficationController::class, 'markAsRead'])
     ->name('notification.read');
+
+
+
+Route::post('/application/withdraw/{id}', [Userprofilecontroller::class, 'withdraw'])
+    ->name('application.withdraw');
+
+
+  Route::get('/job/{id}/reviews', [Joblistcontroller::class, 'rate'])->name('job.ratingshow');
 });
 
 
@@ -333,7 +343,11 @@ Route::prefix('company')->group(function () {
 
         Route::post( '/company/applicant/status/{id}',  [Applicantcontroller::class, 'updateStatus'])->name('company.applicant.status');
 
-        
+         Route::post('/company/review', [CompanyReivewController::class, 'store'])->name('company.review');
+
+        Route::get('/company/reviews', [CompanyReivewController::class, 'index'])->name('company.reviews');
+
+
     });
 });
 
@@ -388,10 +402,12 @@ Route::prefix('admin')->group(function () {
      Route::get('/settings', [AdminSettingController::class, 'settings'])
         ->name('admin.settings');
 
-    Route::post('/settings/update', [AdminSettingController::class, 'updateSettings'])
-        ->name('admin.settings.update');
+    Route::post('/settings/update', [AdminSettingController::class, 'updateSettings'])->name('admin.settings.update');
 
-         Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
+    Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
+
     Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+
+    Route::get('/reviews', [AdminReviewController::class, 'index'])->name('admin.reviews');
     });
 });

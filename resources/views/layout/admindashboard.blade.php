@@ -174,8 +174,20 @@
                         <i class="bi bi-list"></i>
                     </button>
 
+                    
                     <!-- Right Side Icons -->
                     <div class="navbar-nav flex-row">
+                        <div x-data="themeSwitch">
+                            <button class="btn btn-outline-secondary me-1 mt-2" 
+                                    type="button" 
+                                    @click="toggle()"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-placement="bottom"
+                                    title="Toggle theme">
+                                <i class="bi bi-sun-fill" x-show="currentTheme === 'light'"></i>
+                                <i class="bi bi-moon-fill" x-show="currentTheme === 'dark'"></i>
+                            </button>
+                        </div>
                         <!-- Fullscreen Toggle (hidden on phones) -->
                         <button class="btn btn-outline-secondary me-2 d-none d-md-inline-block"
                                 type="button"
@@ -264,6 +276,14 @@
                             <a class="nav-link {{ request()->routeIs('admin.applications') ? 'active' : '' }}" href="{{ route('admin.applications') }}">
                                 <i class="bi bi-people-fill"></i>
                                 <span>Applicants</span>
+                            </a>
+                        </li>   
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.reviews') ? 'active' : '' }}" 
+                            href="{{ route('admin.reviews') }}">
+                                <i class="bi bi-star-fill"></i>
+                                <span>Reviews</span>
                             </a>
                         </li>
 

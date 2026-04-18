@@ -352,11 +352,8 @@
         <div class="stat-card">
             <div class="stat-card-inner">
                 <div class="stat-info">
-                    <h6>📋 Active Jobs</h6>
+                    <h6> Active Jobs</h6>
                     <div class="stat-number">{{ $activeJobs ?? 0 }}</div>
-                    <div class="stat-trend">
-                        <span class="text-success">●</span> Currently recruiting
-                    </div>
                 </div>
                 <div class="stat-icon" style="background: linear-gradient(135deg, #4f46e5, #818cf8); color: white;">
                     <i class="mdi mdi-briefcase"></i>
@@ -370,11 +367,8 @@
         <div class="stat-card">
             <div class="stat-card-inner">
                 <div class="stat-info">
-                    <h6>🔒 Closed Jobs</h6>
+                    <h6> Closed Jobs</h6>
                     <div class="stat-number">{{ $closedJobs ?? 0 }}</div>
-                    <div class="stat-trend">
-                        <span class="text-secondary">●</span> Hiring completed
-                    </div>
                 </div>
                 <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444, #f97316); color: white;">
                     <i class="mdi mdi-lock"></i>
@@ -388,11 +382,8 @@
         <div class="stat-card">
             <div class="stat-card-inner">
                 <div class="stat-info">
-                    <h6>👥 Total Applicants</h6>
+                    <h6> Total Applicants</h6>
                     <div class="stat-number">{{ $totalApplicants ?? 0 }}</div>
-                    <div class="stat-trend">
-                        <span class="text-info">●</span> Total applications
-                    </div>
                 </div>
                 <div class="stat-icon" style="background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white;">
                     <i class="mdi mdi-account-multiple"></i>
@@ -406,11 +397,8 @@
         <div class="stat-card">
             <div class="stat-card-inner">
                 <div class="stat-info">
-                    <h6>✅ Hired</h6>
+                    <h6> Hired</h6>
                     <div class="stat-number">{{ $totalHired ?? 0 }}</div>
-                    <div class="stat-trend text-success">
-                        <i class="bi bi-arrow-up-short"></i> Success rate
-                    </div>
                 </div>
                 <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #34d399); color: white;">
                     <i class="mdi mdi-check-circle"></i>
@@ -424,11 +412,8 @@
         <div class="stat-card">
             <div class="stat-card-inner">
                 <div class="stat-info">
-                    <h6>❌ Rejected</h6>
+                    <h6> Rejected</h6>
                     <div class="stat-number">{{ $totalRejected ?? 0 }}</div>
-                    <div class="stat-trend text-danger">
-                        <i class="bi bi-arrow-down-short"></i> Not selected
-                    </div>
                 </div>
                 <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white;">
                     <i class="mdi mdi-close-circle"></i>
@@ -442,11 +427,8 @@
         <div class="stat-card">
             <div class="stat-card-inner">
                 <div class="stat-info">
-                    <h6>⏳ Pending Review</h6>
+                    <h6> Pending Review</h6>
                     <div class="stat-number">{{ $totalPending ?? 0 }}</div>
-                    <div class="stat-trend text-warning">
-                        <i class="bi bi-hourglass-split"></i> Awaiting action
-                    </div>
                 </div>
                 <div class="stat-icon" style="background: linear-gradient(135deg, #64748b, #94a3b8); color: white;">
                     <i class="mdi mdi-timer-sand"></i>

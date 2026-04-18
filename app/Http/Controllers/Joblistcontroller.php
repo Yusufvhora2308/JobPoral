@@ -27,7 +27,7 @@ class Joblistcontroller extends Controller
     ->when($request->location, fn($q)=>$q->where('location','like','%'.$request->location.'%'))
 
     // 💼 Job Type
-    ->when($request->job_type, fn($q)=>$q->where('job_type',$request->job_type))
+    ->when($request->job_type, function($q) use ($request){  $q->where('job_type', 'like', '%'.$request->job_type.'%');})
 
     // 🎓 Experience
     ->when($request->experience, fn($q)=>$q->where('experience_level',$request->experience))
@@ -85,5 +85,12 @@ class Joblistcontroller extends Controller
             ->paginate(10);
 
         return view('users.Savejob', compact('savedJobs'));
+    }
+
+       public function rate($id)
+    {
+        $job = Postjob::with('company.reviews.user')->findOrFail($id);
+
+        return view('users.Ratinguser', compact('job'));
     }
 }

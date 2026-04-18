@@ -33,6 +33,22 @@ class Userprofilecontroller extends Controller
         return view('users.Myjob', compact('applications'));
     }
 
+    public function withdraw($id)
+    {
+    $application = Jobapplicant::where('id', $id)
+        ->where('user_id', auth()->id())
+        ->firstOrFail();
+
+    if ($application->status == 'withdrawn') {
+        return back()->with('error', 'Already withdrawn');
+    }
+
+    $application->status = 'withdrawn';
+    $application->save();
+
+    return back()->with('success', 'Application withdrawn successfully');
+    }
+
     // Edit page
     public function edit()
     {

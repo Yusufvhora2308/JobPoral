@@ -28,4 +28,9 @@ class Company extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function reviews()
+{
+    return $this->hasMany(CompanyReview::class);
+}
 }

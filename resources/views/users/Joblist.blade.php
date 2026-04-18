@@ -232,11 +232,68 @@ job-title {
         {{ $job->company->company_name ?? 'Company' }}
     </span>
 
+ @if($job->company)
+    @php
+        $avg = $job->company->reviews->avg('rating');
+        $count = $job->company->reviews->count();
+    @endphp
+
+    <div class="d-flex align-items-center justify-content-between w-100 mt-2">
+
+        <!-- ⭐ Rating -->
+        <div class="d-flex align-items-center gap-2">
+
+            @if($avg)
+                <span class="badge bg-warning text-dark fw-bold px-3 py-2">
+                    ⭐ {{ number_format($avg,1) }}
+                </span>
+
+                <small class="text-muted">
+                    ({{ $count }} reviews)
+                </small>
+            @else
+                <small class="text-muted">
+                    No ratings yet
+                </small>
+            @endif
+
+        </div>
+
+        <!-- 🔗 Review Button -->
+       <a href="{{ route('job.ratingshow', $job->id) }}"
+   onclick="event.stopPropagation();"
+   class="btn btn-sm btn-outline-primary">
+   ⭐ Review
+</a>
+
+    </div>
+@endif
+
     <!-- Job Type -->
-    <span class="badge bg-info text-dark job-type px-3 py-2 fw-bold">
-        <i class="mdi mdi-clock-outline me-1"></i>
-        {{ $job->job_type }}
+   @php
+    $types = explode('/', $job->job_type);
+@endphp
+
+@foreach($types as $type)
+    <span class="badge job-type px-3 py-2 fw-bold me-1
+        @if(trim($type) == 'Full Time') bg-success
+        @elseif(trim($type) == 'Part Time') bg-warning text-dark
+        @elseif(trim($type) == 'Internship') bg-info text-dark
+        @else bg-secondary
+        @endif">
+
+        <i class="mdi 
+            @if(trim($type) == 'Full Time') mdi-briefcase
+            @elseif(trim($type) == 'Part Time') mdi-clock-outline
+            @elseif(trim($type) == 'Internship') mdi-school
+            @else mdi-wifi
+            @endif
+            me-1">
+        </i>
+
+        {{ trim($type) }}
     </span>
+@endforeach
 
 
 </div>

@@ -44,8 +44,8 @@ $startDate = $request->start_date;
 // agar start date future me hai → inactive
 $status = 1;
 
-if ($startDate && $startDate > now()->toDateString()) {
-    $status = 0; // not active yet
+if ($startDate && \Carbon\Carbon::parse($startDate)->isFuture()) {
+    $status = 0; // future job → inactive
 }
       Postjob::create([
         'company_id' => auth('company')->id(),

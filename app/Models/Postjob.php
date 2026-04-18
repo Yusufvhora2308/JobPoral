@@ -26,6 +26,11 @@ class Postjob extends Model
         'status',
     ];
 
+    protected $casts = [
+    'start_date' => 'datetime',
+    'last_date' => 'datetime',
+];
+
     // Optional: relationship with Company
     public function company()
     {
@@ -42,8 +47,8 @@ public function scopeActive($query)
     return $query->where('status', 1)
         ->where(function ($q) {
             $q->whereNull('start_date')
-              ->orWhereDate('start_date', '<=', now());
+              ->orWhere('start_date', '<=', now()); // ✅ FIX
         })
-        ->whereDate('last_date', '>=', now());
+        ->where('last_date', '>=', now()); // ✅ FIX
 }
 }

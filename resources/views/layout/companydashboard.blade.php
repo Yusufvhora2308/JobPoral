@@ -295,8 +295,12 @@ body.mini-sidebar .sidebar-brand {
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown">
                         <span class="me-3 d-none d-md-inline fw-semibold text-secondary fw-bold fs-5">{{ auth('company')->user()->company_name }}</span>
-                        <img src="{{ asset('images/users/1.jpg') }}" width="40" height="40" class="rounded-circle border shadow-sm">
-                    </a>
+<img src="{{ auth('company')->user()->logo 
+    ? asset('storage/'.auth('company')->user()->logo) 
+    : 'https://ui-avatars.com/api/?background=4f46e5&color=fff&bold=true&size=40&name='.urlencode(auth('company')->user()->company_name) }}" 
+    width="40" 
+    height="40" 
+    class="rounded-circle border shadow-sm">                    </a>
                     <ul class="dropdown-menu dropdown-menu-end shadow border-0 py-2" style="border-radius: 12px;">
                         <li><a class="dropdown-item py-2 fw-bold" href="{{ route('company.profile') }}"><i class="bi bi-person me-2 fw-bold"></i> My Profile</a></li>
                         <li><hr class="dropdown-divider"></li>
@@ -340,6 +344,12 @@ body.mini-sidebar .sidebar-brand {
                 <li class="sidebar-item {{ request()->routeIs('company.applicants') ? 'active':'' }}">
                     <a href="{{ route('company.applicants') }}" class="sidebar-link">
                         <i class="bi bi-people"></i><span class="hide-menu ms-2">Applicants</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->routeIs('company.reviews') ? 'active':'' }}">
+                    <a href="{{ route('company.reviews') }}" class="sidebar-link">
+                        <i class="bi bi-star-fill"></i>
+                        <span class="hide-menu ms-2">Company Reviews</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ request()->routeIs('company.setting') ? 'active':'' }}">
