@@ -12,10 +12,9 @@ class Joblistcontroller extends Controller
     public function Joblist(Request $request)
     {
        $jobs = Postjob::with('company')
-    ->where('status',1)
-    ->where('last_date', '>=', now()) 
-
-    // 🔍 Search
+    ->active()
+    
+    //  Search
     ->when($request->search, function($q) use ($request){
         $q->where(function($sub) use ($request){
             $sub->where('job_title','like','%'.$request->search.'%')

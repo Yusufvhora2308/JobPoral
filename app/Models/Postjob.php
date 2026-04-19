@@ -44,11 +44,14 @@ class Postjob extends Model
 
 public function scopeActive($query)
 {
-    return $query->where('status', 1)
+    return $query->where('status', 1) // Job manualy enabled honi chahiye
         ->where(function ($q) {
             $q->whereNull('start_date')
-              ->orWhere('start_date', '<=', now()); // ✅ FIX
+              ->orWhere('start_date', '<=', now()); // Agar start date aaj ya purani hai
         })
-        ->where('last_date', '>=', now()); // ✅ FIX
+        ->where(function ($q) {
+            $q->whereNull('last_date')
+              ->orWhere('last_date', '>=', now()); // Agar expiry date abhi aayi nahi hai
+        });
 }
 }

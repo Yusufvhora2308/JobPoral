@@ -92,6 +92,10 @@
         id="videoInput"
         accept="video/*"
         class="form-control">
+
+         <small class="text-muted">
+        Max file size: <strong>50MB</strong> | Allowed: MP4, WebM, MOV
+    </small>
 </div>
 
 <!-- 🎥 Preview -->
@@ -112,7 +116,7 @@
 
                         <div class="d-flex justify-content-between">
                           <a href="{{ route('user.joblist') }}" 
-                            class="btn btn-outline-secondary" 
+                            class="btn btn-outline-success" 
                             id="backBtn">
                                 Back
                             </a>
@@ -232,11 +236,11 @@ videoInput.addEventListener('change', function() {
 
     // ❌ Size check (50MB)
     if (file.size > 50 * 1024 * 1024) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Video Too Large',
-            text: 'Max allowed size is 50MB'
-        });
+       Swal.fire({
+    icon: 'warning',
+    title: 'Video Too Large',
+    html: 'Maximum allowed size is <b>50MB</b>.<br>Please upload a smaller video.',
+});
 
         this.value = "";
         videoPreview.src = "";

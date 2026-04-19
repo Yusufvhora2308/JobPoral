@@ -104,7 +104,7 @@
                 <!-- YEAR -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Year</label>
-                    <input type="number" name="year"
+                    <input type="text" name="year"
                         value="{{ old('year') }}"
                         class="form-control @error('year') is-invalid @enderror">
 

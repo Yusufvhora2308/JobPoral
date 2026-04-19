@@ -42,11 +42,9 @@ if ($request->hasFile('logo')) {
 $startDate = $request->start_date;
 
 // agar start date future me hai → inactive
-$status = 1;
 
-if ($startDate && \Carbon\Carbon::parse($startDate)->isFuture()) {
-    $status = 0; // future job → inactive
-}
+
+
       Postjob::create([
         'company_id' => auth('company')->id(),
         'job_title' => $request->job_title,
@@ -60,7 +58,7 @@ if ($startDate && \Carbon\Carbon::parse($startDate)->isFuture()) {
         'requirements' => $request->requirements,
         'last_date' => $request->last_date,
          'start_date' => $startDate,
-        'status' => $status,
+        'status' => 1,
     ]);
 
     return redirect()->route('managejob')->with('success','Job Posted Successfully');

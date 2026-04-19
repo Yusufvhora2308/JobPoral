@@ -187,7 +187,7 @@
 <div class="text-start px-4 info">
 <p><i class="fa fa-envelope text-primary"></i> {{ auth()->user()->email }}</p>
 <p><i class="fa fa-phone text-success"></i> {{ auth()->user()->phone }}</p>
-<p><i class="fa fa-map-marker-alt text-danger"></i> {{ auth()->user()->location }}</p>
+<p><i class="fa fa-map-marker-alt text-success"></i> {{ auth()->user()->location }}</p>
 @if(auth()->user()->linkedin)
 <p>
     <i class="fab fa-linkedin text-primary"></i>

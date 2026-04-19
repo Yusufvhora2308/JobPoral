@@ -64,7 +64,7 @@
 
                 <div class="modal-header">
                     <h5 class="fw-bold">
-                        <i class="fa fa-lightbulb text-warning"></i> Add Skill
+                        <i class="fa fa-lightbulb text-success"></i> Add Skill
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
@@ -86,7 +86,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-warning px-4 rounded-pill">Save</button>
+                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button class="btn btn-success px-4 rounded-pill">Save</button>
                 </div>
 
                 </form>

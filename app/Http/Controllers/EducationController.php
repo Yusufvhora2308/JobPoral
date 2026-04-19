@@ -24,7 +24,7 @@ public function store(Request $request)
     $request->validate([
         'degree'  => 'required|string|max:100',
         'college' => 'required|string|max:150',
-        'year'    => 'digits:4|integer|min:1950|max:' . date('Y'),
+        'year'    => 'required|',
     ]);
 
     Education::create([

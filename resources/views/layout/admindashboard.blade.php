@@ -287,6 +287,14 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('admin.contacts*') ? 'active' : '' }}" 
+                            href="{{ route('admin.contacts') }}">
+                                <i class="bi bi-chat-dots-fill"></i>
+                                <span>Feedback</span>
+                            </a>
+                        </li>
+
                         <li class="nav-item mt-3">
                             <small class="text-muted px-3 text-uppercase fw-bold">Admin</small>
                         </li>

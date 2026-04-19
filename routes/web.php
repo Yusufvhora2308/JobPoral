@@ -47,6 +47,7 @@ use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CompanyReivewController;
 use App\Http\Controllers\AdminReviewController;
+use App\Http\Controllers\AdminContactController;
 
 Route::get('/', [Homecontroller::class,'Home']);
 
@@ -409,5 +410,11 @@ Route::prefix('admin')->group(function () {
     Route::post('/admin/profile/update', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 
     Route::get('/reviews', [AdminReviewController::class, 'index'])->name('admin.reviews');
+
+     Route::get('/contacts', [AdminContactController::class, 'index'])
+        ->name('admin.contacts');
+
+    Route::get('/contacts/{id}', [AdminContactController::class, 'show'])
+        ->name('admin.contacts.show');
     });
 });

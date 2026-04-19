@@ -49,7 +49,7 @@
             <i class="fa fa-id-card text-danger"></i> Licenses
         </h4>
 
-        <button class="btn btn-danger rounded-pill px-4"
+        <button class="btn btn-success rounded-pill px-4"
             data-bs-toggle="modal" data-bs-target="#licenseModal">
             + Add License
         </button>
